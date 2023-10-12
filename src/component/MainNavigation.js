@@ -5,7 +5,10 @@ import { NavLink } from "react-router-dom";
 const MainNavigation = () => {
   return (
     <header className={classes.header}>
-      <nav>
+      <NavLink to="/" className={classes.logo}>
+        LOGO
+      </NavLink>
+      <nav className={classes.nav}>
         <ul className={classes.list}>
           <li>
             <NavLink to="/" className={({ isActive }) => (isActive ? classes.active : undefined)} end>
@@ -27,6 +30,12 @@ const MainNavigation = () => {
               About
             </NavLink>
           </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul className={classes.list}>
+          <li className={classes.icon}>icon1</li>
+          <li className={classes.icon}>icon2</li>
         </ul>
       </nav>
     </header>

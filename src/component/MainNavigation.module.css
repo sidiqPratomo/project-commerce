@@ -1,15 +1,19 @@
 .header {
-  max-width: 60rem;
   margin: auto;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
-  background-color: aqua;
+  background: #f3adab;
+  align-items: center;
+  height: 80px;
+  top: 0;
+  z-index: 999;
 }
 
 .list {
   display: flex;
   gap: 1rem;
+  color: #010101;
 }
 
 .list a {
@@ -18,5 +22,18 @@
 
 .list a:hover,
 .list a.active {
-  color: yellow;
+  color: #fe5252;
+}
+
+.logo {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  justify-content: left;
+}
+
+.icon {
+  color: #fff;
 }
