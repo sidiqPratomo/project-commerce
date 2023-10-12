@@ -7,6 +7,10 @@ import BestSeller from "./pages/BestSeller";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import AuthenticationPage from "./pages/Athentication";
+import ProductDetailPage from "./pages/ProductDetail";
+import NewProductPage from "./pages/NewProduct";
+import EditProductPage from "./pages/EditProduct";
+import ProductsRootLayout from "./pages/ProductsRoot";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "products", element: <ProductsPage /> },
+      {
+        path: "products",
+        element: <ProductsRootLayout />,
+        children: [
+          { index: true, element: <ProductsPage /> },
+          { path: ":productId", element: <ProductDetailPage /> },
+          { path: "new", element: <NewProductPage /> },
+          { path: ":productId/edit", element: <EditProductPage /> },
+        ],
+      },
       { path: "BestSeller", element: <BestSeller /> },
       { path: "About", element: <About /> },
       { path: "auth", element: <AuthenticationPage /> },
