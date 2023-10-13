@@ -2,7 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/HomePage";
-import ProductsPage from "./pages/Products";
+import ProductsPage, { loader as productsLoader } from "./pages/Products";
 import BestSeller from "./pages/BestSeller";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
@@ -23,7 +23,11 @@ const router = createBrowserRouter([
         path: "products",
         element: <ProductsRootLayout />,
         children: [
-          { index: true, element: <ProductsPage /> },
+          {
+            index: true,
+            element: <ProductsPage />,
+            loader: productsLoader,
+          },
           { path: ":productId", element: <ProductDetailPage /> },
           { path: "new", element: <NewProductPage /> },
           { path: ":productId/edit", element: <EditProductPage /> },

@@ -1,25 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const PRODUCTS = [
-  { id: "p1", title: "Product 1" },
-  { id: "p2", title: "Product 2" },
-  { id: "p3", title: "Product 3" },
-];
+import { useLoaderData } from "react-router-dom";
+import ProductList from "../component/ProductList";
 
 function ProductsPage() {
-  return (
-    <div>
-      <h1>Products</h1>
-      <ul>
-        {PRODUCTS.map((prod) => (
-          <li key={prod.id}>
-            <Link to={prod.id}>{prod.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const items = useLoaderData();
+  return <ProductList products={items} />;
 }
 
 export default ProductsPage;
+
+export async function loader() {
+  const response = await fetch("https://website-commerce-default-rtdb.firebaseio.com/products.json");
+
+  if (!response.ok) {
+  } else {
+    const resData = await response.json();
+    return resData.items;
+  }
+}
