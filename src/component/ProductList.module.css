@@ -1,11 +1,17 @@
 .events {
   margin: 2rem auto;
-  max-width: 40rem;
+  max-width: 1440px;
+}
+
+.events h1 {
+  text-align: center;
 }
 
 .list {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: 1rem;
 }
 
@@ -24,7 +30,8 @@
 }
 
 .item img {
-  width: 33%;
+  width: 200px;
+  height: auto;
   object-fit: cover;
 }
 
