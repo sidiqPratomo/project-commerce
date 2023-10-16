@@ -2,3 +2,42 @@
   display: flex;
   flex-wrap: nowrap;
 }
+
+.kanan {
+  flex-basis: 50%;
+}
+
+.kiri {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kanan img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.konten {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 14px 48px;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #ffff;
+  border: solid 1px black;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #080808;
+  color: #ffff;
+  font-weight: 600;
+}
