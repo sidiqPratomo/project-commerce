@@ -1,19 +1,37 @@
 .container {
   height: 400px;
-  justify-content: center;
   display: flex;
   background: #f3adab;
   align-items: center;
+  justify-content: center;
+}
+
+.judul_container {
+  display: flex;
+  text-align: center;
 }
 
 .judul {
-  display: block;
-  text-align: center;
+  margin: auto;
+  display: flex;
   color: #fff;
+  flex-direction: column;
 }
 
-p {
-  width: 400px;
+.judul h1 {
+  letter-spacing: 5px;
+  font-size: 56px;
+}
+
+.judul h5 {
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.hero_image {
+  display: flex;
+  object-fit: cover;
+  height: 200px;
 }
 
 @media screen and (max-width: 991px) {

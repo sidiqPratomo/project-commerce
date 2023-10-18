@@ -25,6 +25,21 @@
   text-align: center;
   flex-direction: column;
   gap: 10px;
+  max-width: 400px;
+}
+
+.konten h3 {
+  font-size: 14px;
+}
+
+.konten h1 {
+  padding-bottom: 30px;
+  border-bottom: solid 2px black;
+  font-size: 36px;
+}
+
+.konten p {
+  margin-top: 30px;
 }
 
 .btn {
@@ -34,10 +49,12 @@
   background-color: #ffff;
   border: solid 1px black;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .btn:hover {
   background-color: #080808;
   color: #ffff;
   font-weight: 600;
+  cursor: pointer;
 }

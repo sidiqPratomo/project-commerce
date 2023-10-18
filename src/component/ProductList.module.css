@@ -5,6 +5,7 @@
 
 .events h1 {
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .list {
@@ -26,7 +27,7 @@
 
 .item a:hover {
   transform: scale(1.02);
-  background-color: var(--color-gray-700);
+  background-color: rgb(214, 214, 210);
 }
 
 .item img {

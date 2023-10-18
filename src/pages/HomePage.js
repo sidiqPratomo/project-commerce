@@ -4,6 +4,7 @@ import ProductList from "../component/ProductList";
 import { useLoaderData } from "react-router-dom";
 import GridContent from "../component/GridContent";
 import MainContent from "../component/MainContent";
+import SignUp from "../component/SignUp";
 
 const HomePage = () => {
   const data = useLoaderData();
@@ -17,6 +18,7 @@ const HomePage = () => {
       <ProductList products={items} />
       <GridContent />
       <MainContent />
+      <SignUp />
     </>
   );
 };
