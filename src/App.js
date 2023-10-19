@@ -7,7 +7,7 @@ import BestSeller from "./pages/BestSeller";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import AuthenticationPage from "./pages/Athentication";
-import ProductDetailPage from "./pages/ProductDetail";
+import ProductDetailPage, { loader as productDetailLoader } from "./pages/ProductDetail";
 import NewProductPage from "./pages/NewProduct";
 import EditProductPage from "./pages/EditProduct";
 import ProductsRootLayout from "./pages/ProductsRoot";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             element: <ProductsPage />,
             loader: productsLoader,
           },
-          { path: ":productId", element: <ProductDetailPage /> },
+          { path: ":productId", element: <ProductDetailPage />, loader: productDetailLoader },
           { path: "new", element: <NewProductPage /> },
           { path: ":productId/edit", element: <EditProductPage /> },
         ],

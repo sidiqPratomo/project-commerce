@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Hero.module.css";
 import { useNavigate } from "react-router-dom";
-import hero from "../source/hero.png";
+// import hero from "../source/hero.png";
 
 function Hero() {
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className={classes.hero_image}>
+      {/* <div className={classes.hero_image}>
         <img src={hero} alt="hero img" />
-      </div>
+      </div> */}
     </div>
   );
 }
