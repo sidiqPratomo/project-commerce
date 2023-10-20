@@ -1,19 +1,27 @@
 import React from "react";
 import classes from "./ProductItem.module.css";
+import { Link, useSubmit } from "react-router-dom";
 
-function ProductItem(product) {
+function ProductItem({ product }) {
+  const submit = useSubmit();
+  function startDeleteHandler() {
+    const proceed = window.confirm("Are you sure?");
+
+    if (proceed) {
+      submit(null, { method: "delete" });
+    }
+  }
   return (
     <article className={classes.product}>
       <img src={product.image} alt={product.title} />
       <h1>{product.title}</h1>
       <time>{product.date}</time>
       <p>{product.description}</p>
-      {token && (
-        <menu className={classes.actions}>
-          <Link to="edit">Edit</Link>
-          <button onClick={startDeleteHandler}>Delete</button>
-        </menu>
-      )}
+
+      <menu className={classes.actions}>
+        <Link to="edit">Edit</Link>
+        <button onClick={startDeleteHandler}>Delete</button>
+      </menu>
     </article>
   );
 }

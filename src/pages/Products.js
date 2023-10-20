@@ -24,6 +24,7 @@ export async function loader() {
   } else {
     // const resData = await response.json();
     // return resData.items;
+    console.log(response);
     return response;
   }
 }
