@@ -1,9 +1,11 @@
 .container {
   height: 400px;
   display: flex;
-  background: #f3adab;
+  background: #c37b47;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: -99;
 }
 
 .judul_container {
@@ -29,9 +31,13 @@
 }
 
 .hero_image {
+  position: absolute;
   display: flex;
   object-fit: cover;
-  height: 200px;
+  height: 400px;
+  z-index: -1;
+  top: 0;
+  right: 250px;
 }
 
 @media screen and (max-width: 991px) {

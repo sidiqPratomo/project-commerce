@@ -9,8 +9,6 @@ function ProductDetailPage() {
   return (
     <div>
       <ProductItem product={data} />
-      <h1>ProductDetail</h1>
-      <p>{params.productId}</p>
       <p>
         <Link to="..">Back</Link>
       </p>
