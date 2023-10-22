@@ -8,14 +8,17 @@ import SignUp from "../component/SignUp";
 
 const HomePage = () => {
   const data = useLoaderData();
+
   if (data.isError) {
     return <p>{data.message}</p>;
   }
-  const items = data.items;
+  const itemsArray = Object.values(data.items);
+  const keysId = Object.keys(data.items);
+
   return (
     <>
       <Hero />
-      <ProductList products={items} />
+      <ProductList products={itemsArray} keys={keysId} />
       <GridContent />
       <MainContent />
       <SignUp />

@@ -1,11 +1,9 @@
 import React from "react";
-import { Link, useParams, json, useLoaderData } from "react-router-dom";
+import { Link, json, useRouteLoaderData } from "react-router-dom";
 import ProductItem from "../component/ProductItem";
-import axios from "axios";
 
 function ProductDetailPage() {
-  const data = useLoaderData();
-  const params = useParams();
+  const data = useRouteLoaderData("product-detail");
   return (
     <div>
       <ProductItem product={data} />
@@ -34,7 +32,6 @@ export async function loader({ request, params }) {
     );
   } else {
     // const resData = await response.json();
-    console.log(response);
     return response;
   }
 

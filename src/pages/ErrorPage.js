@@ -11,6 +11,7 @@ function ErrorPage() {
 
   if (error.status === 500) {
     message = error.data.message;
+    console.log("data product => " + JSON.stringify(error.data.message));
     //message = JSON.parse(error.data).message;
   }
 

@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./ProductList.module.css";
 import { Link } from "react-router-dom";
 
-function ProductList({ products }) {
+function ProductList({ products, keys }) {
   // const events = useLoaderData();
   // const products = useLoaderData();
 
@@ -10,9 +10,9 @@ function ProductList({ products }) {
     <div className={classes.events}>
       <h1>All Products</h1>
       <ul className={classes.list}>
-        {products.map((prod) => (
-          <li key={prod.id} className={classes.item}>
-            <Link to={`/products/${prod.id}`}>
+        {products.map((prod, index) => (
+          <li key={prod.key} className={classes.item}>
+            <Link to={`/products/${keys[index]}`}>
               <img src={prod.image} alt={prod.title} />
               <div className={classes.content}>
                 <h2>{prod.title}</h2>

@@ -5,12 +5,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: -99;
 }
 
 .judul_container {
   display: flex;
   text-align: center;
+  z-index: 10;
 }
 
 .judul {
@@ -35,9 +35,26 @@
   display: flex;
   object-fit: cover;
   height: 400px;
-  z-index: -1;
+  z-index: 2;
   top: 0;
-  right: 250px;
+  right: 60px;
+}
+
+.btn {
+  padding: 14px 48px;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #ffff;
+  border: solid 1px black;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn:hover {
+  background-color: #080808;
+  color: #ffff;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 991px) {

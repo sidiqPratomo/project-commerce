@@ -15,7 +15,6 @@ function ProductItem({ product }) {
     <article className={classes.product}>
       <img src={product.image} alt={product.title} />
       <h1>{product.title}</h1>
-      <time>{product.date}</time>
       <p>{product.description}</p>
 
       <menu className={classes.actions}>

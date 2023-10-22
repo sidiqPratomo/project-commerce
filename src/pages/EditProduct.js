@@ -1,7 +1,11 @@
 import React from "react";
+import ProductForm from "../component/ProductForm";
+import { useRouteLoaderData } from "react-router-dom";
 
 function EditProductPage() {
-  return <div>EditProduct</div>;
+  const data = useRouteLoaderData("product-detail");
+
+  return <ProductForm product={data} />;
 }
 
 export default EditProductPage;

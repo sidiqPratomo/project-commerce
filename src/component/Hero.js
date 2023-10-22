@@ -18,7 +18,9 @@ function Hero() {
           <h1>New Collection</h1>
           <p>Look at the sunset, life is amazing, life is beautiful, life what you make it</p>
           <div>
-            <button onClick={navigateHandler}>DISCOVER NOW</button>
+            <button className={classes.btn} onClick={navigateHandler}>
+              DISCOVER NOW
+            </button>
           </div>
         </div>
       </div>

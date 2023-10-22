@@ -1,7 +1,13 @@
 import React from "react";
 import classes from "./MainContent.module.css";
+import { useNavigate } from "react-router-dom";
 
 function MainContent() {
+  const navigate = useNavigate();
+
+  const navigateHandler = () => {
+    navigate("/auth");
+  };
   return (
     <div className={classes.container}>
       <div className={classes.kiri}>
@@ -10,7 +16,9 @@ function MainContent() {
           <h1>Accessories for her</h1>
           <p>Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore</p>
           <div>
-            <button className={classes.btn}>SHOP NOW</button>
+            <button onClick={navigateHandler} className={classes.btn}>
+              SHOP NOW
+            </button>
           </div>
         </div>
       </div>
