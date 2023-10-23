@@ -8,7 +8,7 @@ function ProductItem({ product }) {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      submit(null, { method: "delete" });
+      submit(null, { method: "DELETE" });
     }
   }
   return (

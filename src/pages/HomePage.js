@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import GridContent from "../component/GridContent";
 import MainContent from "../component/MainContent";
 import SignUp from "../component/SignUp";
+import Footer from "../component/Footer";
 
 const HomePage = () => {
   const data = useLoaderData();
@@ -22,6 +23,7 @@ const HomePage = () => {
       <GridContent />
       <MainContent />
       <SignUp />
+      <Footer />
     </>
   );
 };

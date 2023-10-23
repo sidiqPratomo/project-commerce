@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, json, useRouteLoaderData } from "react-router-dom";
+import { Link, json, redirect, useRouteLoaderData } from "react-router-dom";
 import ProductItem from "../component/ProductItem";
 
 function ProductDetailPage() {
   const data = useRouteLoaderData("product-detail");
+
   return (
     <div>
       <ProductItem product={data} />
@@ -42,4 +43,40 @@ export async function loader({ request, params }) {
   // } catch (error) {
   //   console.log(error);
   // }
+}
+
+export async function action({ params, request }) {
+  const id = params.productId;
+  // const response = fetch(`https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`, {
+  //   method: request.method,
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  // });
+
+  // if (!response.ok) {
+  //   throw json({ message: "could not delete the product" }, { status: 500 });
+  // }
+  // return redirect("/products");
+
+  const url = `https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`;
+
+  try {
+    const response = await fetch(url, {
+      method: request.method,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Could not delete the product");
+    }
+
+    return redirect("/products");
+  } catch (error) {
+    return json({ message: error.message }, { status: 500 });
+  }
 }

@@ -11,7 +11,7 @@ function ProductList({ products, keys }) {
       <h1>All Products</h1>
       <ul className={classes.list}>
         {products.map((prod, index) => (
-          <li key={prod.key} className={classes.item}>
+          <li key={prod.id} className={classes.item}>
             <Link to={`/products/${keys[index]}`}>
               <img src={prod.image} alt={prod.title} />
               <div className={classes.content}>

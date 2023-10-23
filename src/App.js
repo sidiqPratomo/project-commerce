@@ -7,7 +7,7 @@ import BestSeller from "./pages/BestSeller";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import AuthenticationPage from "./pages/Athentication";
-import ProductDetailPage, { loader as productDetailLoader } from "./pages/ProductDetail";
+import ProductDetailPage, { loader as productDetailLoader, action as deleteProductAction } from "./pages/ProductDetail";
 import NewProductPage, { action as newProductAction } from "./pages/NewProduct";
 import EditProductPage from "./pages/EditProduct";
 import ProductsRootLayout from "./pages/ProductsRoot";
@@ -36,6 +36,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <ProductDetailPage />,
+                action: deleteProductAction,
               },
               {
                 path: "edit",

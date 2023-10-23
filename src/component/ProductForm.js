@@ -30,7 +30,7 @@ function ProductForm({ method, product }) {
         <button type="button" onClick={cancelHandler}>
           Cancel
         </button>
-        <button>Save</button>
+        <button type="submit">Save</button>
       </div>
     </Form>
   );
