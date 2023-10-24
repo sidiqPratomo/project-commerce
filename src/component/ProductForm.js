@@ -1,9 +1,12 @@
 import React from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Form, useNavigate, useNavigation } from "react-router-dom";
 import classes from "./ProductForm.module.css";
 
 function ProductForm({ method, product }) {
   const navigate = useNavigate();
+  const navigation = useNavigation();
+
+  const isSubmitting = navigation.state === "submitting";
   function cancelHandler() {
     navigate("..");
   }
@@ -27,10 +30,12 @@ function ProductForm({ method, product }) {
         <textarea id="description" name="description" rows="5" required defaultValue={product ? product.description : ""} />
       </p>
       <div className={classes.actions}>
-        <button type="button" onClick={cancelHandler}>
+        <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
           Cancel
         </button>
-        <button type="submit">Save</button>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting.." : "Save"}
+        </button>
       </div>
     </Form>
   );

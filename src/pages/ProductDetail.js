@@ -23,18 +23,18 @@ export default ProductDetailPage;
 export async function loader({ request, params }) {
   const id = params.productId;
 
-  const response = await fetch(`https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`);
-  if (!response.ok) {
-    throw json(
-      { message: "Could not fetch details for selected event." },
-      {
-        status: 500,
-      },
-    );
-  } else {
-    // const resData = await response.json();
-    return response;
-  }
+  // const response = await fetch(`https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`);
+  // if (!response.ok) {
+  //   throw json(
+  //     { message: "Could not fetch details for selected event." },
+  //     {
+  //       status: 500,
+  //     },
+  //   );
+  // } else {
+  //   const resData = await response.json();
+  //   return response;
+  // }
 
   // try {
   //   const response = await axios.get(`https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`);
@@ -43,6 +43,20 @@ export async function loader({ request, params }) {
   // } catch (error) {
   //   console.log(error);
   // }
+
+  const url = `https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Could not fetch the detail product");
+    }
+
+    return response;
+  } catch (error) {
+    return json({ message: error.message }, { status: 500 });
+  }
 }
 
 export async function action({ params, request }) {
