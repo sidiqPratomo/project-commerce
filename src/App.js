@@ -8,9 +8,10 @@ import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import AuthenticationPage from "./pages/Athentication";
 import ProductDetailPage, { loader as productDetailLoader, action as deleteProductAction } from "./pages/ProductDetail";
-import NewProductPage, { action as newProductAction } from "./pages/NewProduct";
+import NewProductPage from "./pages/NewProduct";
 import EditProductPage from "./pages/EditProduct";
 import ProductsRootLayout from "./pages/ProductsRoot";
+import { action as productFormAction } from "./component/ProductForm";
 
 const router = createBrowserRouter([
   {
@@ -41,10 +42,11 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditProductPage />,
+                action: productFormAction,
               },
             ],
           },
-          { path: "new", element: <NewProductPage />, action: newProductAction },
+          { path: "new", element: <NewProductPage />, action: productFormAction },
         ],
       },
       { path: "BestSeller", element: <BestSeller /> },

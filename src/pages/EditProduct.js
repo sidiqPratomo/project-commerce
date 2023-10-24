@@ -5,7 +5,7 @@ import { useRouteLoaderData } from "react-router-dom";
 function EditProductPage() {
   const data = useRouteLoaderData("product-detail");
 
-  return <ProductForm product={data} />;
+  return <ProductForm product={data} method="PATCH" />;
 }
 
 export default EditProductPage;

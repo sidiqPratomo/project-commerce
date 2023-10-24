@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, useNavigate, useNavigation } from "react-router-dom";
 import classes from "./ProductForm.module.css";
+import { json, redirect } from "react-router-dom";
 
 function ProductForm({ method, product }) {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function ProductForm({ method, product }) {
   }
 
   return (
-    <Form method="post" className={classes.form}>
+    <Form method={method} className={classes.form}>
       <p>
         <label htmlFor="title">Title</label>
         <input id="title" type="text" name="title" required defaultValue={product ? product.title : ""} />
@@ -42,3 +43,35 @@ function ProductForm({ method, product }) {
 }
 
 export default ProductForm;
+
+export async function action({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const productFormData = {
+    title: data.get("title"),
+    image: data.get("image"),
+    description: data.get("description"),
+    id: data.get("id"),
+  };
+
+  let url = "https://website-commerce-default-rtdb.firebaseio.com/products/items.json";
+
+  if (method === "PATCH") {
+    const id = params.productId;
+    url = `https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`;
+  }
+
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(productFormData),
+  });
+
+  if (!response.ok) {
+    throw json({ message: "cannot submit the product" }, { status: 500 });
+  }
+  return redirect("/products");
+}
