@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./MainNavigation.module.css";
 import { NavLink } from "react-router-dom";
+import { FaCartPlus, FaUser } from "react-icons/fa";
 
 const MainNavigation = () => {
   return (
@@ -34,8 +35,12 @@ const MainNavigation = () => {
       </nav>
       <nav>
         <ul className={classes.list}>
-          <li className={classes.icon}>icon1</li>
-          <li className={classes.icon}>icon2</li>
+          <li className={classes.icon}>
+            <FaUser />
+          </li>
+          <li className={classes.icon}>
+            <FaCartPlus style={{ color: "#ffff", fontSize: "20px" }} />
+          </li>
         </ul>
       </nav>
     </header>
