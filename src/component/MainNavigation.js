@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MainNavigation.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaCartPlus, FaUser } from "react-icons/fa";
 
 const MainNavigation = () => {
@@ -22,12 +22,12 @@ const MainNavigation = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/BestSeller" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+            <NavLink to="/bestSeller" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               Best Seller
             </NavLink>
           </li>
           <li>
-            <NavLink to="/About" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+            <NavLink to="/about" className={({ isActive }) => (isActive ? classes.active : undefined)}>
               About
             </NavLink>
           </li>
@@ -36,7 +36,9 @@ const MainNavigation = () => {
       <nav>
         <ul className={classes.list}>
           <li className={classes.icon}>
-            <FaUser />
+            <Link to={"/auth"}>
+              <FaUser />
+            </Link>
           </li>
           <li className={classes.icon}>
             <FaCartPlus style={{ color: "#ffff", fontSize: "20px" }} />

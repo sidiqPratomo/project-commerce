@@ -12,6 +12,8 @@ import NewProductPage from "./pages/NewProduct";
 import EditProductPage from "./pages/EditProduct";
 import ProductsRootLayout from "./pages/ProductsRoot";
 import { action as productFormAction } from "./component/ProductForm";
+import Login from "./component/SignIn";
+import Home from "./component/Logout";
 
 const router = createBrowserRouter([
   {
@@ -49,9 +51,11 @@ const router = createBrowserRouter([
           { path: "new", element: <NewProductPage />, action: productFormAction },
         ],
       },
-      { path: "BestSeller", element: <BestSeller /> },
-      { path: "About", element: <About /> },
+      { path: "bestSeller", element: <BestSeller /> },
+      { path: "about", element: <About /> },
       { path: "auth", element: <AuthenticationPage /> },
+      { path: "login", element: <Login /> },
+      { path: "home", element: <Home /> },
     ],
   },
 ]);

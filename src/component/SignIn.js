@@ -1,78 +1,74 @@
-import React from "react";
-import { useNavigate, NavLink } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = async (e) => {
+  const onLogin = (e) => {
     e.preventDefault();
-
-    await createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        navigate("/home");
         console.log(user);
-        navigate("/");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
       });
   };
 
   return (
-    <main>
-      <section>
-        <div>
+    <>
+      <main>
+        <section>
           <div>
-            <h1> FocusApp </h1>
+            <p> FocusApp </p>
+
             <form>
               <div>
                 <label htmlFor="email-address">Email address</label>
                 <input
+                  id="email-address"
+                  name="email"
                   type="email"
-                  label="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="Email address"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
               <div>
                 <label htmlFor="password">Password</label>
                 <input
+                  id="password"
+                  name="password"
                   type="password"
-                  label="Create password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
-              <button type="submit" onClick={onSubmit}>
-                Sign up
-              </button>
+              <div>
+                <button onClick={onLogin}>Login</button>
+              </div>
             </form>
 
-            <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
+            <p className="text-sm text-white text-center">
+              No account yet? <NavLink to="/auth">Sign up</NavLink>
             </p>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 };
 
-export default Signup;
+export default Login;
