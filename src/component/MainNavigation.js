@@ -36,7 +36,7 @@ const MainNavigation = () => {
       <nav>
         <ul className={classes.list}>
           <li className={classes.icon}>
-            <Link to={"/auth"}>
+            <Link to={"/auth?mode=login"}>
               <FaUser />
             </Link>
           </li>
