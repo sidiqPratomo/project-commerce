@@ -6,7 +6,6 @@ import ProductsPage, { loader as productsLoader } from "./pages/Products";
 import BestSeller from "./pages/BestSeller";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
-import AuthenticationPage from "./pages/Athentication";
 import ProductDetailPage, { loader as productDetailLoader, action as deleteProductAction } from "./pages/ProductDetail";
 import NewProductPage from "./pages/NewProduct";
 import EditProductPage from "./pages/EditProduct";
@@ -14,6 +13,7 @@ import ProductsRootLayout from "./pages/ProductsRoot";
 import { action as productFormAction } from "./component/ProductForm";
 import Login from "./component/SignIn";
 import Home from "./component/Logout";
+import AuthenticationPage, { action as authAction } from "./pages/Authentication";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       },
       { path: "bestSeller", element: <BestSeller /> },
       { path: "about", element: <About /> },
-      { path: "auth", element: <AuthenticationPage /> },
+      { path: "auth", element: <AuthenticationPage />, action: authAction },
       { path: "login", element: <Login /> },
       { path: "home", element: <Home /> },
     ],
