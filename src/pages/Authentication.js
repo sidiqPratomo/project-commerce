@@ -39,12 +39,18 @@ export async function action({ request }) {
     }
 
     const user = userCredential.user;
-    console.log("data user =>" + user);
+    console.log("data user =>" + JSON.stringify(user));
+    console.log("user token =>" + JSON.stringify(user.accessToken));
     if (mode === "login") {
       console.log("login success");
     } else {
       console.log("sign up success");
     }
+
+    const token = user.accessToken;
+
+    localStorage.setItem("token", token);
+
     return redirect("/");
   } catch (error) {
     const errorCode = error.code;

@@ -2,6 +2,7 @@ import React from "react";
 import { Form, useNavigate, useNavigation } from "react-router-dom";
 import classes from "./ProductForm.module.css";
 import { json, redirect } from "react-router-dom";
+import { getAuth } from "../util/auth";
 
 function ProductForm({ method, product }) {
   const navigate = useNavigate();
@@ -62,10 +63,12 @@ export async function action({ request, params }) {
     url = `https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`;
   }
 
+  const token = getAuth();
   const response = await fetch(url, {
     method: method,
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer" + token,
     },
     body: JSON.stringify(productFormData),
   });

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, json, redirect, useRouteLoaderData } from "react-router-dom";
 import ProductItem from "../component/ProductItem";
+import { getAuth } from "../util/auth";
 
 function ProductDetailPage() {
   const data = useRouteLoaderData("product-detail");
@@ -75,11 +76,12 @@ export async function action({ params, request }) {
   // return redirect("/products");
 
   const url = `https://website-commerce-default-rtdb.firebaseio.com/products/items/${id}.json`;
-
+  const token = getAuth();
   try {
     const response = await fetch(url, {
       method: request.method,
       headers: {
+        Authorization: "Bearer" + token,
         Accept: "application/json",
         "Content-Type": "application/json",
       },

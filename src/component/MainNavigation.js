@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MainNavigation.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { Form, Link, NavLink } from "react-router-dom";
 import { FaCartPlus, FaUser } from "react-icons/fa";
 
 const MainNavigation = () => {
@@ -39,6 +39,11 @@ const MainNavigation = () => {
             <Link to={"/auth?mode=login"}>
               <FaUser />
             </Link>
+          </li>
+          <li>
+            <Form action="/logout" method="post">
+              <button>Logout</button>
+            </Form>
           </li>
           <li className={classes.icon}>
             <FaCartPlus style={{ color: "#ffff", fontSize: "20px" }} />
